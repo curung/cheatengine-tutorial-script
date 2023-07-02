@@ -1,1 +1,2 @@
-# cheat engine script ver 1.0
+# cheat engine
+script ver 1.0
