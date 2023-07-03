@@ -8,17 +8,18 @@ if process == nil then
 end
 local openedProcess = openProcess(process.ID)
 
--- memory --
-local valueToFind = 42 -- 변경하고자 하는 값
+-- 메모리에서 값을 찾고 변경
+local initialValue = 100 -- 변경하고자 하는 값의 초기값
 local newValue = 5000 -- 변경할 값
 
-local address = findAddress(valueToFind) -- 값을 찾을 메모리 주소 검색
-if address == nil then
-    print("falled.")
-else
+local address = getAddress(initialValue) -- 값을 찾을 메모리 주소 검색
+if address ~= nil then
     writeInteger(address, newValue) -- 메모리 값 변경
-    print("clear!!.")
+    print("값을 변경했습니다.")
+else
+    print("값을 찾을 수 없습니다.")
 end
 
 -- Cheat Engine와 연결 종료
 closeProcess(openedProcess)
+
